@@ -1,0 +1,17 @@
+-- DELETE ON CASCADE
+
+--INVOICE
+
+ALTER TABLE invoice
+   DROP CONSTRAINT fk_client_id;   
+
+ALTER TABLE invoice add constraint
+   FOREIGN KEY (fk_client_id) REFERENCES clients(client_id) ON DELETE CASCADE;
+
+--INVOICE_LINES
+
+ALTER TABLE invoice_lines
+   DROP CONSTRAINT fk_invoice_id;   
+
+ALTER TABLE invoice add constraint
+   FOREIGN KEY invoice_id;   REFERENCES invoice(invoice_id) ON DELETE CASCADE;
